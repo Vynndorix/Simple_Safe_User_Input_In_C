@@ -10,7 +10,7 @@ int main(void) {
     char Y[LENGTH];//starting with chars then going to typecast it to int
     printf("Put in your X integer: ");
 
-    if(fgets(X, sizeof(X), stdin) != NULL ){//gonn be using fgets not SCANF
+    if(fgets(X, sizeof(X), stdin) != NULL ){//gonna be using fgets not SCANF
         size_t len = strlen(X);
         if(len > 0 && X[len - 1] == '\n'){
             X[len - 1] = '\0';
@@ -35,7 +35,7 @@ int main(void) {
             Y[len - 1] = '\0';
         }
 
-        // Chekc for invaild input and bnuffer overflows whilst terminating the NULL 
+        // Check for buffer overflow and invalid input Part 2
         if ((len >= LENGTH - 1) || (atoi(Y) == 0 && Y[0] != '0')) {
             printf("Prevented Buffer Overflow Program Closing... | ERR: 2\n");
             return 2;
@@ -48,7 +48,7 @@ int main(void) {
     int x = atoi(X);
     int y = atoi(Y);//typecasting
     
-    //the using the user input as an example
+    // using the user input as an example
     if(x > y){
         printf("X is bigger than Y\n");
     }

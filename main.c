@@ -16,15 +16,15 @@ int main(void) {
             X[len - 1] = '\0';
         }
 
-        if(strlen(X) < LENGTH){
-
-        }
-        else{
+        // Check for buffer overflow and invalid input
+        if ((len >= LENGTH - 1) || (atoi(X) == 0 && X[0] != '0')) {
             printf("Prevented Buffer Overflow Program Closing... | ERR: 1\n");
             return 1;
         }
-
-    } 
+    } else {
+        printf("Error reading input.\n");
+        return 1;
+    }
     
     printf("Put in your Y integer: ");
 
@@ -34,15 +34,14 @@ int main(void) {
             Y[len - 1] = '\0';
         }
 
-
-        if(strlen(Y) < LENGTH){
-
-        }
-        else{
+        // Check for buffer overflow and invalid input
+        if ((len >= LENGTH - 1) || (atoi(Y) == 0 && Y[0] != '0')) {
             printf("Prevented Buffer Overflow Program Closing... | ERR: 2\n");
             return 2;
         }
-        
+    } else {
+        printf("Error reading input.\n");
+        return 2;
     }
     
     int x = atoi(X);
@@ -55,11 +54,5 @@ int main(void) {
         printf("Y is bigger than X\n");
     }
 
-
     return 0;
-    
 }
-
-/*gcc -Wall -Wextra -Wpedantic -Wconversion -Wformat-security -Wformat -Wshadow -fstack-protector\
- -D_FORTIFY_SOURCE=2 -ftrapv -Wfloat-equal -Wnonnull -Werror -std=c11 -O2 -o main.elf   main.c   \
- && ./main.elf | Use this for compiling ANYTHING in c. */
